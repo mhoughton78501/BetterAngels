@@ -1,0 +1,281 @@
+/* css rest */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color:#ffffff;
+  font-family:ui;
+  color:#000000;
+  margin-left:0;
+  margin-top:0;
+  }
+
+.keepFromOverlap {
+  margin-bottom:10vh;
+}
+
+h1 {
+  font-size:30;
+  text-align:center;
+}
+
+h3 {
+  font-size:20;
+  text-align:center;
+  margin-left:1vw;
+}
+
+.dateOfEntry {
+  position:fixed;
+  bottom:0;
+  left:1vw;
+  padding-bottom:2.5vh;
+}
+
+.doediv {
+  display: block;
+  position:fixed;
+  width:25vw;
+}
+
+.largecontainer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  background-color:white;
+  width:100vw;
+  height:10vh;
+}
+
+.tydiv {
+  display: block;
+  position: fixed;
+  bottom:0;
+  width:50vw;
+  margin-left:25vw;
+  margin-right:25vw;
+  text-align:center;
+  padding-bottom:2.5vh;
+}
+
+.entry-data {
+  top:45vh;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+/*styles specifically to make links invisible*/
+.invisiLink {
+  text-decoration:none;
+  text-decoration-color: none;
+  color:black;
+}
+
+/*technically would also work for anything that needs to be in the overridden-style*/
+.archivesLink {
+  text-decoration:none;
+  text-decoration-color: none;
+  color:#ffffff;
+  background:#000000;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align:middle;
+  line-height:normal;
+}
+
+/*to redact stuff-like the email on asduidsa.html*/
+.redacted {
+  display: inline-block;
+  padding: .25em 0;
+  background: #000000;
+  color: #000000;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+/*literally just tab why am i so fancy with this*/
+.tab {
+  display: inline-block;
+  margin-left:5vw;
+}
+
+/*has to be ID for getElementByID*/
+#override {
+  display: inline-block;
+  padding: .25em 0;
+  color:#ffffff;
+  font-family:'Courier New', Courier, monospace;
+}
+
+/*default background for things 'overridden' is white*/
+.overridden {
+  background:#ffffff
+}
+
+/*the text however idk why its called blankSpace has a black highlight - otherwise it would just be a huge ugly block*/
+.blankSpace {
+  background:#000000;
+}
+
+.centerh2 {
+  text-align:center;
+}
+
+.contactName {
+  margin-left:10px;
+  margin-bottom: 5px;
+  font-size: 20px
+}
+.contactInfo {
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom:3px;
+}
+.contactButton {
+  margin-left: 10px;
+  margin-top:3px;
+  background-color: #cccaca;
+  border-radius:2px;
+  border:1px solid black;
+  padding-top:2px;
+  padding-bottom:2px;
+  padding-left:5px;
+  padding-right:5px;
+  margin-bottom:20px;
+}
+/*actual height is 10vh of the little thing on the bottom this is for...idk...aesthetic purposes?*/
+#finalButton {
+  display:block;
+}
+
+.msgTable {
+  border: 2px solid black;
+  border-collapse:collapse;
+}
+
+.inboxCell {
+  width:23.5vw;
+  border:2px solid #4f4e4d;
+  text-align:left;
+  padding-left:0.5vw;
+}
+
+th {
+  font-size:25px;
+}
+
+.inboxRight {
+  float:right;
+  width:74%;
+  top:0vw;
+  padding-left:1%;
+  overflow-y:auto;
+  min-height:90vh;
+  max-height:90vh;
+  padding-bottom:1vh;
+}
+
+.inboxLeft {
+  float:left;
+  width:25%;
+  overflow-y:scroll;
+  min-height:90vh;
+  max-height:90vh;
+}
+
+.pageData {
+  padding-top:0vh;
+  margin-top:0vh;
+  min-height:90vh;
+  max-height:90vh;
+  overflow-y:scroll;
+}
+
+.inbox {
+  overflow-y:hidden;
+}
+
+.currentMessage {
+  background-color:#9f9f9f;
+}
+
+.title {
+  font-size:25px;
+  text-align:left;
+  font-weight:bold;
+}
+.sender{
+  font-size:17px;
+  text-align:left;
+}
+.date {
+  font-size:15px;
+  text-align:left;
+}
+.email {
+  font-size:17px;
+  text-align:left;
+}
+
+#placeHolder {
+  font-size:25px;
+  font-weight:bold;
+}
+
+h1 {
+  font-size:25px;
+  margin-bottom:3vh;
+  margin-top:10px;
+}
+
+.brokenLink {
+  text-decoration:underline;
+  color:blue;
+}
+
+.brokenLink:hover {
+  text-decoration:underline;
+  color:purple;
+}
+
+.pdf {
+  padding-top:5px;
+  padding-left:5px;
+  font-size:13px;
+  height:85px;
+  width:85px;
+  background-color:rgb(215, 215, 217);
+}
+
+.openedPdf {
+  position:relative;
+  z-index:10;
+  background-color:green;
+  height = 20vh;
+  width = 20vh;
+}
