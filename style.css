@@ -27,12 +27,12 @@ body {
 }
 
 h1 {
-  font-size:30;
+  font-size:30px;
   text-align:center;
 }
 
 h3 {
-  font-size:20;
+  font-size:20px;
   text-align:center;
   margin-left:1vw;
 }
@@ -45,6 +45,7 @@ h3 {
 }
 
 .doediv {
+  z-index:12;
   display: block;
   position:fixed;
   width:25vw;
@@ -62,12 +63,14 @@ h3 {
 .tydiv {
   display: block;
   position: fixed;
+  z-index:11;
   bottom:0;
-  width:50vw;
-  margin-left:25vw;
-  margin-right:25vw;
+  width:100vw;
   text-align:center;
+  padding-top:2.5vh;
   padding-bottom:2.5vh;
+  height:5vh;
+  background-color:white;
 }
 
 .entry-data {
@@ -79,14 +82,14 @@ h3 {
 /*styles specifically to make links invisible*/
 .invisiLink {
   text-decoration:none;
-  text-decoration-color: none;
+  text-decoration-color: currentColor;
   color:black;
 }
 
 /*technically would also work for anything that needs to be in the overridden-style*/
 .archivesLink {
   text-decoration:none;
-  text-decoration-color: none;
+  text-decoration-color: currentColor;
   color:#ffffff;
   background:#000000;
   font-family:'Courier New', Courier, monospace;
@@ -162,10 +165,7 @@ h3 {
   background-color: #cccaca;
   border-radius:2px;
   border:1px solid black;
-  padding-top:2px;
-  padding-bottom:2px;
-  padding-left:5px;
-  padding-right:5px;
+  padding: 2px 5px;
   margin-bottom:20px;
 }
 /*actual height is 10vh of the little thing on the bottom this is for...idk...aesthetic purposes?*/
@@ -209,8 +209,8 @@ th {
 }
 
 .pageData {
-  padding-top:0vh;
-  margin-top:0vh;
+  padding-top:0;
+  margin-top:0;
   min-height:90vh;
   max-height:90vh;
   overflow-y:scroll;
@@ -273,9 +273,21 @@ h1 {
 }
 
 .openedPdf {
-  position:relative;
+  position:absolute;
+  top: 5vh;
+  left: 10vw;
   z-index:10;
-  background-color:green;
-  height = 20vh;
-  width = 20vh;
+  background-color:rgb(230, 230, 230);
+  height: 85vh;
+  width: 80vw;
+  overflow-y:auto;
+}
+
+.exitButton{
+  position:absolute;
+  margin:7vh 61.75vw;
+  z-index:11;
+  font-weight:bold;
+  width:4vh;
+  height:4vh;
 }

@@ -1,5 +1,5 @@
 function visitPast() {
-  if (sessionStorage.getItem('alertedNum')!='yes') {
+  if (sessionStorage.getItem('alertedNum')!=='yes') {
     setTimeout(function() {  
       alert("Warning: System overload. Error: GENESIS. (!PLEASE REBOOT!)");
       sessionStorage.setItem('alertedNum','yes');
@@ -13,8 +13,8 @@ function visitPast() {
 }
 
 function letterOverride() {
-  var toOverride = document.getElementById("override")
-  var archives = document.createElement("a");
+  const toOverride = document.getElementById("override");
+  const archives = document.createElement("a");
   archives.href = "asdglkj.html";
   archives.target = "_self";
   archives.innerHTML = "ARCHIVES";
@@ -29,10 +29,10 @@ function letterOverride() {
 }
 
 function archiveAccessOverride() {
-  if (sessionStorage.getItem('archiveAccessGranted') == 'yes') {
-    var linkToBe = document.getElementById('OldMsgOverride');
+  if (sessionStorage.getItem('archiveAccessGranted') === 'yes') {
+    const linkToBe = document.getElementById('OldMsgOverride');
     linkToBe.innerHTML = "<a class = 'invisiLink' href = 'kljalksjgkld.html'>Old Messages: 24</a>";
-    var contactsLinkToBe = document.getElementById('contactsToOverride');
+    const contactsLinkToBe = document.getElementById('contactsToOverride');
     contactsLinkToBe.innerHTML = "<a class = 'invisiLink' href = 'lkjklajlkg.html'>Contacts: 13</a>";
   }
 }
@@ -42,15 +42,14 @@ function contactError() {
 }
 
 function openMsg(id) {
-  oldMsg = document.getElementsByClassName('currentMessage');
-  if (oldMsg.hasOwnProperty(0)) {
+  let oldMsg = document.getElementsByClassName('currentMessage');
+  if (Object.hasOwn(oldMsg,0)) {
     oldMsg.item(0).classList.remove('currentMessage');
   }
-  curMsg = document.getElementById(id);
+  let curMsg = document.getElementById(id);
   curMsg.classList.add('currentMessage');
-  msgSpace = document.getElementById('inboxMsgSpace');
+  let msgSpace = document.getElementById('inboxMsgSpace');
   msgSpace.innerHTML = jan26Inbox.get(id);
-  console.log('hey hey!')
 }
 
 function brokenLinkMsg(){
@@ -58,12 +57,26 @@ function brokenLinkMsg(){
 }
 
 function openPdf(pdfCode) {
-  const pdf = document.createElement(div);
+  const pdf = document.createElement("div");
   pdf.classList.add('openedPdf');
-  pdf.innerHTML = "hi";
+  pdf.innerHTML += "hi";
+  for (let i = 0; i < 100; i++) {
+    pdf.innerHTML += "<br>";
+  }
+  pdf.innerHTML += "bye";
+  const exitButton = document.createElement("button");
+  exitButton.classList.add('exitButton');
+  exitButton.innerHTML = "X";
   const inbox = document.getElementById("inboxArchives");
-  document.body.insertBefore(pdf,inbox);
-  console.log('hey');
+  inbox.append(pdf);
+  inbox.append(exitButton);
+}
+
+function closePdf() {
+  const pdf = document.getElementsByClassName("openedPdf").item(0);
+  const exitButton = document.getElementsByClassName("exitButton").item(0);
+  pdf.remove();
+  exitButton.remove();
 }
 
 jan26Inbox = new Map();
@@ -89,18 +102,21 @@ jan26Inbox.set('msg19', '<span class = "title">Concerning Your Brother...</span>
 jan26Inbox.set('msg20', '<span class = "title">Onboarding Requirements</span><br><span class = "sender">Winston Ford <i>&lt;winstonford@circleleads.betterangels.org&gt;</i></span><br><span class = "date">21/12/07</span><br><br>Hello');
 jan26Inbox.set('msg21', '<span class = "title">Nice to meet you!</span><br><span class = "sender">Christopher Henry <i>&lt;christopherhenry@one.betterangels.org&gt;</i></span><br><span class = "date">21/12/07</span><br><br>Hello');
 jan26Inbox.set('msg22', '<span class = "title">Welcome</span><br><span class = "sender">Joseph Bell <i>&lt;josephbell@lead.betterangels.org&gt;</i></span><br><span class = "date">20/12/07</span><br><br>Hello');
-jan26Inbox.set('msg23', '<span class = "title">Assessment Results and Orientation</span><br><span class = "sender">Better Angels Project Welcome Team <i>&lt;noreply@welcome.betterangels.org&gt;</i></span><br><span class = "date">19/12/07</span><br><br>Hello William Vanderon,<br>Thank you for taking our assessment. You are best suited for the Blue Circle, just as our recruiters suspected. You will be a researcher with the Better Angels Project. Our leader, Mr. Bell, will reach out shortly to inform you of the orientation process, and Pink Circle Lead Ford will reach out to assist you with the rest of our onboarding process. You may review your responses in the attached file.<br><br>Thank you for helping us find the better angels of this world,<br>Better Angels Project Welcome Team<br><br><br><div class = "pdf"><b>Assessment - W. Vanderon - 20071219</b>');
+jan26Inbox.set('msg23', '<span class = "title">Assessment Results and Orientation</span><br><span class = "sender">Better Angels Project Welcome Team <i>&lt;noreply@welcome.betterangels.org&gt;</i></span><br><span class = "date">19/12/07</span><br><br>Hello William Vanderon,<br>Thank you for taking our assessment. You are best suited for the Blue Circle, just as our recruiters suspected. You will be a researcher with the Better Angels Project. Our leader, Mr. Bell, will reach out shortly to inform you of the orientation process, and Pink Circle Lead Ford will reach out to assist you with the rest of our onboarding process. You may review your responses in the attached file.<br><br>Thank you for helping us find the better angels of this world,<br>Better Angels Project Welcome Team<br><br><br><div class = "pdf"><b class = "pdfText">Assessment - W. Vanderon - 20071219</b>');
 jan26Inbox.set('msg24', '<span class = "title">Welcome to the Better Angels Project!</span><br><span class = "sender">Better Angels Project Welcome Team <i>&lt;noreply@welcome.betterangels.org&gt;</i></span><br><span class = "date">19/12/07</span><br><br>Hello William Vanderon,<br>We here at the Better Angels Project are delighted you have taken an interest in our research. Please take the assessment found <span class = "brokenLink">here</span>.<br><br>Thank you for helping us find the better angels of this world,<br>Better Angels Project Welcome Team');
 
 document.addEventListener('click', event => {
+  event.stopImmediatePropagation(); // when things are situated within other elements, like divs, stops multiple clicks from registering!
  if (event.target.className === 'contactButton') {
    contactError();
  } else if (event.target.className === 'inboxCell') {
    openMsg(event.target.id);
  } else if (event.target.className === 'brokenLink') {
    brokenLinkMsg(event.target.id);
- } else if (event.target.className === 'pdf') {
+ } else if (event.target.className === 'pdf' || event.target.className === 'pdfText') {
    openPdf(0); //0 is the int code for the assessment pdf
+ } else if (event.target.className === 'exitButton') {
+   closePdf();
  }
 }
 )
