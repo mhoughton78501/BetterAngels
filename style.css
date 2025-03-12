@@ -73,6 +73,14 @@ h3 {
   background-color:white;
 }
 
+.logoutdiv {
+  position:fixed;
+  z-index:12;
+  display: block;
+  bottom: 2.5vh;
+  right: 2.5vw;
+}
+
 .entry-data {
   top:45vh;
   margin-left:auto;
@@ -290,4 +298,13 @@ h1 {
   font-weight:bold;
   width:4vh;
   height:4vh;
+}
+
+.loginButton {
+  position:fixed;
+  top: 50vh;
+  left:50vw;
+  transform: translate(-50%, -50%);
+  background-color:lightblue;
+  padding: 1vh;
 }

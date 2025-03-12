@@ -1,14 +1,10 @@
-function visitPast() {
+function genesisError() {
   if (sessionStorage.getItem('alertedNum')!=='yes') {
-    setTimeout(function() {  
-      alert("Warning: System overload. Error: GENESIS. (!PLEASE REBOOT!)");
-      sessionStorage.setItem('alertedNum','yes');
-    }, (2 * 1000));
+    alert("Warning: System overload. Error: GENESIS. (!PLEASE REBOOT!)");
+    sessionStorage.setItem('alertedNum','yes');
     setTimeout(function() {
       window.location.href = 'asduidsa.html';
-    }, (2*1000));
-  } else {
-    archiveAccessOverride();
+    }, (.5*1000));
   }
 }
 
@@ -26,15 +22,6 @@ function letterOverride() {
     toOverride.innerHTML += "<span class='blankSpace'>.</span>";
   }, (5*1000));
   sessionStorage.setItem('archiveAccessGranted','yes')
-}
-
-function archiveAccessOverride() {
-  if (sessionStorage.getItem('archiveAccessGranted') === 'yes') {
-    const linkToBe = document.getElementById('OldMsgOverride');
-    linkToBe.innerHTML = "<a class = 'invisiLink' href = 'kljalksjgkld.html'>Old Messages: 24</a>";
-    const contactsLinkToBe = document.getElementById('contactsToOverride');
-    contactsLinkToBe.innerHTML = "<a class = 'invisiLink' href = 'lkjklajlkg.html'>Contacts: 13</a>";
-  }
 }
 
 function contactError() {
@@ -59,17 +46,18 @@ function brokenLinkMsg(){
 function openPdf(pdfCode) {
   const pdf = document.createElement("div");
   pdf.classList.add('openedPdf');
-  pdf.innerHTML += "hi";
-  for (let i = 0; i < 100; i++) {
-    pdf.innerHTML += "<br>";
-  }
-  pdf.innerHTML += "bye";
-  const exitButton = document.createElement("button");
-  exitButton.classList.add('exitButton');
-  exitButton.innerHTML = "X";
+  pdf.innerHTML = pdfs.get(0);
+  const exitButton = createButton('exitButton', "X");
   const inbox = document.getElementById("inboxArchives");
   inbox.append(pdf);
   inbox.append(exitButton);
+}
+
+function createButton(classList, inner) {
+  const button = document.createElement("button");
+  button.classList.add(classList);
+  button.innerHTML = inner;
+  return button;
 }
 
 function closePdf() {
@@ -77,6 +65,21 @@ function closePdf() {
   const exitButton = document.getElementsByClassName("exitButton").item(0);
   pdf.remove();
   exitButton.remove();
+}
+
+function logout() {
+  user = "";
+}
+
+function login(str) {
+  if (str === "Vanderon") {
+    user = "Vanderon";
+    if (sessionStorage.getItem('alertedNum')!=='yes') {
+      window.location.href = 'index.html';
+    } else {
+      window.location.href = 'asdglkj.html';
+    }
+  }
 }
 
 jan26Inbox = new Map();
@@ -105,17 +108,23 @@ jan26Inbox.set('msg22', '<span class = "title">Welcome</span><br><span class = "
 jan26Inbox.set('msg23', '<span class = "title">Assessment Results and Orientation</span><br><span class = "sender">Better Angels Project Welcome Team <i>&lt;noreply@welcome.betterangels.org&gt;</i></span><br><span class = "date">19/12/07</span><br><br>Hello William Vanderon,<br>Thank you for taking our assessment. You are best suited for the Blue Circle, just as our recruiters suspected. You will be a researcher with the Better Angels Project. Our leader, Mr. Bell, will reach out shortly to inform you of the orientation process, and Pink Circle Lead Ford will reach out to assist you with the rest of our onboarding process. You may review your responses in the attached file.<br><br>Thank you for helping us find the better angels of this world,<br>Better Angels Project Welcome Team<br><br><br><div class = "pdf"><b class = "pdfText">Assessment - W. Vanderon - 20071219</b>');
 jan26Inbox.set('msg24', '<span class = "title">Welcome to the Better Angels Project!</span><br><span class = "sender">Better Angels Project Welcome Team <i>&lt;noreply@welcome.betterangels.org&gt;</i></span><br><span class = "date">19/12/07</span><br><br>Hello William Vanderon,<br>We here at the Better Angels Project are delighted you have taken an interest in our research. Please take the assessment found <span class = "brokenLink">here</span>.<br><br>Thank you for helping us find the better angels of this world,<br>Better Angels Project Welcome Team');
 
+pdfs = new Map();
+pdfs.set(0, '<span class = "title">Results</span><h4>Overall Summary</h4>');
+
+let user = "Vanderon";
+
 document.addEventListener('click', event => {
   event.stopImmediatePropagation(); // when things are situated within other elements, like divs, stops multiple clicks from registering!
- if (event.target.className === 'contactButton') {
+  const className = event.target.className;
+ if (className === 'contactButton') {
    contactError();
- } else if (event.target.className === 'inboxCell') {
+ } else if (className === 'inboxCell') {
    openMsg(event.target.id);
- } else if (event.target.className === 'brokenLink') {
+ } else if (className === 'brokenLink') {
    brokenLinkMsg(event.target.id);
- } else if (event.target.className === 'pdf' || event.target.className === 'pdfText') {
+ } else if (className === 'pdf' || className === 'pdfText') {
    openPdf(0); //0 is the int code for the assessment pdf
- } else if (event.target.className === 'exitButton') {
+ } else if (className === 'exitButton') {
    closePdf();
  }
 }
