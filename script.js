@@ -40,7 +40,7 @@ function openMsg(id) {
 }
 
 function brokenLinkMsg(){
-  alert('This link is archived and not safe to use. If you are a regular member of our Better Angels project, please leave the site and contact Orange Circle Lead Isaac Boyle (isaacboyle@circleleads.betterangels.org). If you are a Circle Lead accessing the Archives for security purposes, please email Project Lead Joseph Bell (josephbell@lead.betterangels.org).');
+  alert('This link is archived and not safe to use. If you are a regular member of our Better Angels project, please leave the site and contact Yellow Circle Lead Samuel Whitney (samuelwhitney@circleleads.betterangels.org). If you are a Circle Lead accessing the Archives for security purposes, please email Project Lead Joseph Bell (josephbell@lead.betterangels.org).');
 }
 
 function openPdf(pdfCode) {
@@ -72,14 +72,27 @@ function logout() {
 }
 
 function login(str) {
-  if (str === "Vanderon") {
+  let username = "wvcb1"
+  let password = "adf";
+  const usernameEl = document.getElementById("username");
+  const passwordEl = document.getElementById("pw");
+  if (usernameEl.value ??= null) {
+    username = usernameEl.value;
+  }
+  if (passwordEl.value ??= null) {
+    password = passwordEl.value;
+  }
+  if (password === "adf" && username === "wvcb1") {
     user = "Vanderon";
     if (sessionStorage.getItem('alertedNum')!=='yes') {
       window.location.href = 'index.html';
     } else {
       window.location.href = 'asdglkj.html';
     }
+  } else {
+    alert("Login information incorrect. Please try again. If your password has been disabled, please contact Yellow Circle Lead Samuel Whitney (samuelwhitney@circleleads.betterangels.org).");
   }
+  console.log(user);
 }
 
 jan26Inbox = new Map();

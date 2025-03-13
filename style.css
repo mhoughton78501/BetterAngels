@@ -301,10 +301,44 @@ h1 {
 }
 
 .loginButton {
-  position:fixed;
-  top: 50vh;
-  left:50vw;
+  position:relative;
+  top: 20%;
+  left:50%;
   transform: translate(-50%, -50%);
-  background-color:lightblue;
+  background-color:gray;
+  padding: 1vh;
+}
+
+#login {
+  position: absolute;
+  top: 20vh;
+  left:50vw;
+  transform: translateX(-50%);
+  width: 20vw;
+  height: 50vh;
+  background-color:rgb(230, 230, 230);
+  outline: black solid 2px;
+  border-radius:5%;
+}
+
+#loginHeader {
+  font-size:25px;
+  position: relative;
+  top: 3%;
+}
+
+.textInput {
+  position: relative;
+  margin: 1vw;
+}
+
+#usernameLabel {
+  position:relative;
+  top: 2vh;
+}
+
+.actInput {
+  background: white;
+  width: 83%;
   padding: 1vh;
 }
