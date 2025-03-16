@@ -73,7 +73,7 @@ function logout() {
 
 function login(str) {
   let username = "wvcb1"
-  let password = "adf";
+  let password = "33ia#lEn";
   const usernameEl = document.getElementById("username");
   const passwordEl = document.getElementById("pw");
   if (usernameEl.value ??= null) {
@@ -82,7 +82,8 @@ function login(str) {
   if (passwordEl.value ??= null) {
     password = passwordEl.value;
   }
-  if (password === "adf" && username === "wvcb1") {
+  console.log(password);
+  if (password === "33ia#lEn" && username === "wvcb1") {
     user = "Vanderon";
     if (sessionStorage.getItem('alertedNum')!=='yes') {
       window.location.href = 'index.html';
