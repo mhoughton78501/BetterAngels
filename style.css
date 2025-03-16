@@ -342,3 +342,8 @@ h1 {
   width: 83%;
   padding: 1vh;
 }
+
+.resultPie {
+  width: 25%;
+  height: 25%
+}

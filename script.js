@@ -44,13 +44,43 @@ function brokenLinkMsg(){
 }
 
 function openPdf(pdfCode) {
+  if (pdfCode === 0) {
+    buildResultPdf();
+  }
+}
+
+function buildResultPdf() {
   const pdf = document.createElement("div");
   pdf.classList.add('openedPdf');
-  pdf.innerHTML = pdfs.get(0);
+  pdf.innerHTML = '<span class = "title">Results</span><h4>Overall Summary</h4>';
+  const resultPie = makePie(25,50,75,100,25,25,25);
+  pdf.append(resultPie);
   const exitButton = createButton('exitButton', "X");
   const inbox = document.getElementById("inboxArchives");
   inbox.append(pdf);
   inbox.append(exitButton);
+}
+
+function makePie(purpleC, blueC, orangeC, redC, yellowC, greenC, pinkC) {
+  const pie = document.createElement("div");
+  pie.classList.add('resultPie');
+  for (let i = 0; i < arguments.length; i++) {
+    arguments[i] *= 3.6;
+  }
+  // pie.style.background = "conic-gradient(purple purpleC deg, " +
+  //     "blue purpleC deg blueC deg, orange blueC deg orangeC deg, red orangeC deg redC deg)";
+  //pie.style.background = "conic-gradient(purple 0deg 90deg, blue 90 deg 180 deg, red 180 deg)";
+  pie.style.background = "conic-gradient(" +
+      "purple " + purpleC + "deg," +
+      "blue " + purpleC + "deg" + blueC + "deg)";
+      // "orange " + blueC + "deg" + orangeC +"deg" +
+      // "red " + orangeC + "deg" + redC + "deg" +
+      // "yellow " + redC + "deg" + yellowC + "deg" +
+      // "green " + yellowC + "deg" + greenC + "deg" +
+      // "pink " + pinkC + "deg" + pinkC + "deg)";
+  pie.style.borderRadius = "50%";
+  pie.innerHTML = 'hey';
+  return pie;
 }
 
 function createButton(classList, inner) {
@@ -121,9 +151,6 @@ jan26Inbox.set('msg21', '<span class = "title">Nice to meet you!</span><br><span
 jan26Inbox.set('msg22', '<span class = "title">Welcome</span><br><span class = "sender">Joseph Bell <i>&lt;josephbell@lead.betterangels.org&gt;</i></span><br><span class = "date">20/12/07</span><br><br>Hello');
 jan26Inbox.set('msg23', '<span class = "title">Assessment Results and Orientation</span><br><span class = "sender">Better Angels Project Welcome Team <i>&lt;noreply@welcome.betterangels.org&gt;</i></span><br><span class = "date">19/12/07</span><br><br>Hello William Vanderon,<br>Thank you for taking our assessment. You are best suited for the Blue Circle, just as our recruiters suspected. You will be a researcher with the Better Angels Project. Our leader, Mr. Bell, will reach out shortly to inform you of the orientation process, and Pink Circle Lead Ford will reach out to assist you with the rest of our onboarding process. You may review your responses in the attached file.<br><br>Thank you for helping us find the better angels of this world,<br>Better Angels Project Welcome Team<br><br><br><div class = "pdf"><b class = "pdfText">Assessment - W. Vanderon - 20071219</b>');
 jan26Inbox.set('msg24', '<span class = "title">Welcome to the Better Angels Project!</span><br><span class = "sender">Better Angels Project Welcome Team <i>&lt;noreply@welcome.betterangels.org&gt;</i></span><br><span class = "date">19/12/07</span><br><br>Hello William Vanderon,<br>We here at the Better Angels Project are delighted you have taken an interest in our research. Please take the assessment found <span class = "brokenLink">here</span>.<br><br>Thank you for helping us find the better angels of this world,<br>Better Angels Project Welcome Team');
-
-pdfs = new Map();
-pdfs.set(0, '<span class = "title">Results</span><h4>Overall Summary</h4>');
 
 let user = "Vanderon";
 
