@@ -53,7 +53,7 @@ function buildResultPdf() {
   const pdf = document.createElement("div");
   pdf.classList.add('openedPdf');
   pdf.innerHTML = '<span class = "title">Results</span><h4>Overall Summary</h4>';
-  const resultPie = makePie(14,28,42,50,66,80,100);
+  const resultPie = makePie(17,51,57,60,80,91,100);
   pdf.append(resultPie);
   const exitButton = createButton('exitButton', "X");
   const inbox = document.getElementById("inboxArchives");
@@ -67,17 +67,6 @@ function makePie(purpleC, blueC, orangeC, redC, yellowC, greenC, pinkC) {
   for (let i = 0; i < arguments.length; i++) {
     arguments[i] *= 3.6;
   }
-  // pie.style.background = "conic-gradient(purple purpleC deg, " +
-  //     "blue purpleC deg blueC deg, orange blueC deg orangeC deg, red orangeC deg redC deg)";
-  //pie.style.background = "conic-gradient(purple 0deg 90deg, blue 90 deg 180 deg, red 180 deg)";
-  // pie.style.background = "conic-gradient(" +
-  //     "purple 90 deg," +
-  //     "blue 90 deg 270 deg)";
-      // "orange " + blueC + "deg" + orangeC +"deg" +
-      // "red " + orangeC + "deg" + redC + "deg" +
-      // "yellow " + redC + "deg" + yellowC + "deg" +
-      // "green " + yellowC + "deg" + greenC + "deg" +
-      // "pink " + pinkC + "deg" + pinkC + "deg)";
   pie.style.background = "conic-gradient(" +
       "purple " + purpleC + "deg, " +
       "blue " + purpleC + "deg " + blueC +"deg, " +
